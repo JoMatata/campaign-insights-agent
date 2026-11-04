@@ -1,0 +1,263 @@
+{
+  "embedder": "all-MiniLM-L6-v2",
+  "n_feedback": 3000,
+  "n_labelled": 300,
+  "llm_used": null,
+  "clustering": {
+    "k": 10,
+    "silhouette_by_k": {
+      "4": 0.1439466029405594,
+      "5": 0.15813376009464264,
+      "6": 0.16953310370445251,
+      "7": 0.1743340641260147,
+      "8": 0.19293701648712158,
+      "9": 0.19477778673171997,
+      "10": 0.19864419102668762,
+      "11": 0.19529792666435242,
+      "12": 0.19013655185699463
+    },
+    "silhouette": 0.19864419102668762,
+    "clusters": [
+      {
+        "cluster": 0,
+        "size": 619,
+        "top_terms": [
+          "bado",
+          "imechelewa",
+          "imechelewa bado",
+          "nimengoja",
+          "poa",
+          "hadi sasa",
+          "haujafika",
+          "haujafika hadi"
+        ],
+        "examples": [
+          "again, order imechelewa sana, 3 days na bado kwa kweli",
+          "again, order imechelewa sana, 5 days na bado kwa kweli",
+          "Bana nimelipa KES 1300 kwa mpesa na bado inasema pending. fix this"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.296
+      },
+      {
+        "cluster": 9,
+        "size": 358,
+        "top_terms": [
+          "number",
+          "marked delivered",
+          "delivered",
+          "marked",
+          "delivered came",
+          "chat",
+          "kept calling",
+          "kept"
+        ],
+        "examples": [
+          "bana the rider kept calling for directions then disappeared. will not order again",
+          "Wueh the rider kept calling for directions then disappeared, also the support team keeps asking for the same order number. please sort this out",
+          "Again, the rider kept calling for directions then disappeared. will not order again"
+        ],
+        "majority_theme": "service",
+        "purity": 0.492
+      },
+      {
+        "cluster": 8,
+        "size": 344,
+        "top_terms": [
+          "flour",
+          "chapati flour",
+          "chapati",
+          "maize flour",
+          "maize",
+          "snack",
+          "broken",
+          "stale broken"
+        ],
+        "examples": [
+          "so great quality, my family loves the chapati flour. and prices went up again this month kwa kweli",
+          "Ghali sana mazee, chapati flour kwa 300. very disappointed",
+          "tausi, ghali sana mazee, maize flour kwa 300. very disappointed"
+        ],
+        "majority_theme": "quality",
+        "purity": 0.378
+      },
+      {
+        "cluster": 5,
+        "size": 338,
+        "top_terms": [
+          "delivery",
+          "supposed",
+          "day",
+          "supposed day",
+          "day came",
+          "delivery supposed",
+          "took arrive",
+          "took"
+        ],
+        "examples": [
+          "Wueh delivery was supposed to be same day but it came after 4 days. sio poa",
+          "Hi, delivery was supposed to be same day but it came after 6 days. plus the support team keeps asking for the same order number. sio poa",
+          "hi, delivery was supposed to be same day but it came after 2 days. and nimechoka na hii ad kila saa pls"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.775
+      },
+      {
+        "cluster": 3,
+        "size": 303,
+        "top_terms": [
+          "m-pesa",
+          "payment",
+          "failed",
+          "smooth",
+          "m-pesa payment",
+          "smooth time",
+          "payment smooth",
+          "timing"
+        ],
+        "examples": [
+          "tried to pay with m-pesa three times and it failed. sio poa",
+          "Tried to pay with M-Pesa three times and it failed. sio poa",
+          "so tried to pay with m-pesa three times and it failed"
+        ],
+        "majority_theme": "payment",
+        "purity": 0.785
+      },
+      {
+        "cluster": 4,
+        "size": 243,
+        "top_terms": [
+          "ad",
+          "video",
+          "following",
+          "ad following",
+          "ads",
+          "feed",
+          "ads feed",
+          "button shows"
+        ],
+        "examples": [
+          "Hi, the ad plays before every YouTube video, so annoying. sio poa",
+          "wueh the ad plays before every youtube video, so annoying pls",
+          "Wueh the ad plays before every YouTube video, so annoying. sio poa"
+        ],
+        "majority_theme": "ad_annoyance",
+        "purity": 0.881
+      },
+      {
+        "cluster": 6,
+        "size": 236,
+        "top_terms": [
+          "juice",
+          "leaves",
+          "tea leaves",
+          "tea",
+          "mbaya",
+          "taste",
+          "juice ilikuwa",
+          "ilikuwa taste"
+        ],
+        "examples": [
+          "Tausi, bei iko juu sana compared to the supermarket, also juice ilikuwa na taste mbaya. very disappointed",
+          "quality imeshuka, mango juice si kama zamani kwa kweli",
+          "Again, great quality, my family loves the mango juice, also nimechoka na hii ad kila saa kwa kweli"
+        ],
+        "majority_theme": "quality",
+        "purity": 0.407
+      },
+      {
+        "cluster": 7,
+        "size": 227,
+        "top_terms": [
+          "oil",
+          "cooking oil",
+          "cooking",
+          "fee",
+          "fee item",
+          "item",
+          "delivery fee",
+          "oil jerrycan"
+        ],
+        "examples": [
+          "So great quality, my family loves the the 5L oil jerrycan. plus delivery fee of KES 200 is more than the item kwa kweli",
+          "Cooking oil is now KES 600, that is too expensive. will not order again",
+          "So cooking oil is now KES 300, that is too expensive. will not order again"
+        ],
+        "majority_theme": "pricing",
+        "purity": 0.388
+      },
+      {
+        "cluster": 1,
+        "size": 170,
+        "top_terms": [
+          "price",
+          "promo",
+          "promo said",
+          "paid price",
+          "said paid",
+          "said",
+          "paid",
+          "offer price"
+        ],
+        "examples": [
+          "The offer price on the ad was different at checkout. will not order again",
+          "the offer price on the ad was different at checkout pls",
+          "The offer price on the ad was different at checkout pls"
+        ],
+        "majority_theme": "pricing",
+        "purity": 0.918
+      },
+      {
+        "cluster": 2,
+        "size": 162,
+        "top_terms": [
+          "pack",
+          "iftar",
+          "iftar pack",
+          "pack worth",
+          "worth",
+          "crisps",
+          "iko fiti",
+          "fiti value"
+        ],
+        "examples": [
+          "Tausi, the iftar pack was worth it. 10/10",
+          "tausi, the iftar pack was worth it",
+          "Tausi, the iftar pack was worth it. and why is the online price higher than in the shop kwa kweli"
+        ],
+        "majority_theme": "positive",
+        "purity": 0.463
+      }
+    ],
+    "adjusted_rand_index": 0.21550615919771118
+  },
+  "classification": {
+    "baseline_logreg_cv5": {
+      "macro_f1": 0.894,
+      "accuracy": 0.897,
+      "per_class_f1": {
+        "ad_annoyance": 0.918,
+        "delivery": 0.913,
+        "payment": 0.889,
+        "positive": 0.827,
+        "pricing": 0.93,
+        "quality": 0.892,
+        "service": 0.893
+      }
+    },
+    "zero_shot_embedding": {
+      "macro_f1": 0.667,
+      "accuracy": 0.667,
+      "per_class_f1": {
+        "ad_annoyance": 0.75,
+        "delivery": 0.717,
+        "payment": 0.835,
+        "positive": 0.341,
+        "pricing": 0.617,
+        "quality": 0.701,
+        "service": 0.704
+      }
+    }
+  },
+  "seconds": 21.1
+}

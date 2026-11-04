@@ -1,0 +1,188 @@
+{
+  "model": "scripted-fake",
+  "question": "Did TikTok Madaraka Day (C11) underperform Meta Madaraka Day (C10)? And what were customers complaining about at the end of May?",
+  "stopped": "final_answer",
+  "total_ms": 5870.0,
+  "final": {
+    "answer": "Yes. C11 (TikTok) converted 0.82% of clicks against 3.04% for C10 (Meta), a gap of 2.21 pp (p<0.001). ROAS was 1.23 vs 3.09. Conversions fell to 71 on 2026-05-28 against a median of 243 per day that week. Feedback from 25 May to 1 June that is closest to payment failure is about: m-pesa, refund, payment, nililipa, nililipa double, double hakuna. Example: \"so payment failed but m-pesa sent a confirmation message. please sort this out\"",
+    "key_numbers": [
+      {
+        "label": "C10 CVR",
+        "value": 3.04,
+        "unit": "%"
+      },
+      {
+        "label": "C11 CVR",
+        "value": 0.82,
+        "unit": "%"
+      },
+      {
+        "label": "C10 ROAS",
+        "value": 3.09,
+        "unit": "x"
+      },
+      {
+        "label": "C11 ROAS",
+        "value": 1.23,
+        "unit": "x"
+      },
+      {
+        "label": "Conversions on 2026-05-28",
+        "value": 71.0,
+        "unit": "count"
+      }
+    ],
+    "sql_used": [
+      "SELECT campaign_id, sum(conversions) FROM daily_performance WHERE campaign_id IN ('C10', 'C11') GROUP BY 1",
+      "SELECT date, sum(conversions) AS conversions FROM daily_performance WHERE date BETWEEN '2026-05-25' AND '2026-06-01' GROUP BY 1 ORDER BY 1"
+    ],
+    "confidence": "medium",
+    "caveats": [
+      "Feedback counts come from similarity search, not exact labels.",
+      "Synthetic data: the outage is a planted pattern."
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "llm_ms": 0.0,
+      "text": "",
+      "usage": {},
+      "tool_calls": [
+        {
+          "name": "get_schema",
+          "args": {},
+          "ok": true,
+          "ms": 265.4,
+          "result_preview": "{\"ok\": true, \"dialect\": \"DuckDB\", \"tables\": {\"campaigns\": {\"rows\": 18, \"columns\": {\"campaign_id\": \"VARCHAR\", \"campaign_name\": \"VARCHAR\", \"channel\": \"VARCHAR\", \"objective\": \"VARCHAR\", \"start_date\": \"DATE\", \"end_date\": \"DATE\", \"budget_kes\": \"BIGINT\"}, \"notes\": \"One row per campaign. budget_kes is the planned budget in Kenyan shillings.\"}, \"creatives\": {\"rows\": 53, \"columns\": {\"creative_id\": \"VARCHAR\", \"campaign_id\": \"VARCHAR\", \"format\": \"VARCHAR\", \"language\": \"VARCHAR\", \"headline\": \"VARCHAR\"}, \"no"
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "llm_ms": 0.0,
+      "text": "",
+      "usage": {},
+      "tool_calls": [
+        {
+          "name": "run_sql",
+          "args": {
+            "query": "SELECT campaign_id, sum(conversion) FROM daily_performance WHERE campaign_id IN ('C10', 'C11') GROUP BY 1"
+          },
+          "ok": false,
+          "ms": 1.4,
+          "result_preview": "{\"ok\": false, \"error\": \"BinderException: Binder Error: Referenced column \\\"conversion\\\" not found in FROM clause!\\nCandidate bindings: \\\"conversions\\\", \\\"impressions\\\", \\\"device\\\", \\\"county\\\", \\\"campaign_id\\\"\\n\\nLINE 1: SELECT * FROM (SELECT campaign_id, sum(conversion) FROM daily_performance WHERE campaign_id IN...\\n                                               ^\"}"
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "llm_ms": 0.0,
+      "text": "",
+      "usage": {},
+      "tool_calls": [
+        {
+          "name": "run_sql",
+          "args": {
+            "query": "SELECT campaign_id, sum(conversions) FROM daily_performance WHERE campaign_id IN ('C10', 'C11') GROUP BY 1"
+          },
+          "ok": true,
+          "ms": 4.8,
+          "result_preview": "{\"ok\": true, \"columns\": [\"campaign_id\", \"sum(conversions)\"], \"rows\": [[\"C10\", 798], [\"C11\", 416]], \"row_count\": 2, \"truncated\": false, \"elapsed_ms\": 4.7}"
+        },
+        {
+          "name": "compare_campaigns",
+          "args": {
+            "campaign_a": "C10",
+            "campaign_b": "C11"
+          },
+          "ok": true,
+          "ms": 4.0,
+          "result_preview": "{\"ok\": true, \"a\": {\"campaign_id\": \"C10\", \"impressions\": 1883881.0, \"clicks\": 26293.0, \"conversions\": 798.0, \"spend\": 489860.33, \"revenue\": 1514069.85, \"ctr\": 0.013956826360051404, \"cvr\": 0.030350283345377097, \"cpa\": 613.8600626566414, \"roas\": 3.0908194790951957}, \"b\": {\"campaign_id\": \"C11\", \"impressions\": 2830539.0, \"clicks\": 50698.0, \"conversions\": 416.0, \"spend\": 509532.64, \"revenue\": 625877.07, \"ctr\": 0.01791107630030888, \"cvr\": 0.008205451891593357, \"cpa\": 1224.8380769230753, \"roas\": 1.22833"
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "llm_ms": 0.0,
+      "text": "",
+      "usage": {},
+      "tool_calls": [
+        {
+          "name": "summarise_feedback_theme",
+          "args": {
+            "theme": "M-Pesa payment failed, money deducted",
+            "k": 40,
+            "start_date": "2026-05-25",
+            "end_date": "2026-06-01"
+          },
+          "ok": true,
+          "ms": 5587.3,
+          "result_preview": "{\"ok\": true, \"theme\": \"M-Pesa payment failed, money deducted\", \"n_snippets\": 40, \"mean_similarity\": 0.432, \"top_terms\": [\"m-pesa\", \"refund\", \"payment\", \"nililipa\", \"nililipa double\", \"double hakuna\", \"double\", \"hakuna refund\", \"timing\", \"m-pesa step\"], \"by_source\": {\"support_chat\": 16, \"ad_comment\": 16, \"app_review\": 7, \"survey\": 1}, \"by_county\": {\"Mombasa\": 11, \"Nairobi\": 11, \"Kakamega\": 5, \"Nakuru\": 5, \"Kiambu\": 4}, \"by_week\": {\"2026-05-25\": 35, \"2026-06-01\": 5}, \"avg_rating\": 2.12, \"represent"
+        },
+        {
+          "name": "run_sql",
+          "args": {
+            "query": "SELECT date, sum(conversions) AS conversions FROM daily_performance WHERE date BETWEEN '2026-05-25' AND '2026-06-01' GROUP BY 1 ORDER BY 1"
+          },
+          "ok": true,
+          "ms": 6.6,
+          "result_preview": "{\"ok\": true, \"columns\": [\"date\", \"conversions\"], \"rows\": [[\"2026-05-25\", 243], [\"2026-05-26\", 243], [\"2026-05-27\", 230], [\"2026-05-28\", 71], [\"2026-05-29\", 74], [\"2026-05-30\", 293], [\"2026-05-31\", 308], [\"2026-06-01\", 257]], \"row_count\": 8, \"truncated\": false, \"elapsed_ms\": 6.3}"
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "llm_ms": 0.2,
+      "text": "Writing the answer.",
+      "usage": {},
+      "tool_calls": [
+        {
+          "name": "final_answer",
+          "args": {
+            "answer": "Yes. C11 (TikTok) converted 0.82% of clicks against 3.04% for C10 (Meta), a gap of 2.21 pp (p<0.001). ROAS was 1.23 vs 3.09. Conversions fell to 71 on 2026-05-28 against a median of 243 per day that week. Feedback from 25 May to 1 June that is closest to payment failure is about: m-pesa, refund, payment, nililipa, nililipa double, double hakuna. Example: \"so payment failed but m-pesa sent a confirmation message. please sort this out\"",
+            "key_numbers": [
+              {
+                "label": "C10 CVR",
+                "value": 3.04,
+                "unit": "%"
+              },
+              {
+                "label": "C11 CVR",
+                "value": 0.82,
+                "unit": "%"
+              },
+              {
+                "label": "C10 ROAS",
+                "value": 3.09,
+                "unit": "x"
+              },
+              {
+                "label": "C11 ROAS",
+                "value": 1.23,
+                "unit": "x"
+              },
+              {
+                "label": "Conversions on 2026-05-28",
+                "value": 71,
+                "unit": "count"
+              }
+            ],
+            "sql_used": [
+              "SELECT campaign_id, sum(conversions) FROM daily_performance WHERE campaign_id IN ('C10', 'C11') GROUP BY 1",
+              "SELECT date, sum(conversions) AS conversions FROM daily_performance WHERE date BETWEEN '2026-05-25' AND '2026-06-01' GROUP BY 1 ORDER BY 1"
+            ],
+            "confidence": "medium",
+            "caveats": [
+              "Feedback counts come from similarity search, not exact labels.",
+              "Synthetic data: the outage is a planted pattern."
+            ]
+          },
+          "ok": true,
+          "ms": 0.1,
+          "result_preview": "{\"ok\": true}"
+        }
+      ]
+    }
+  ]
+}

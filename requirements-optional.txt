@@ -1,0 +1,4 @@
+# Better embeddings (pulls in torch). Without these the code uses TF-IDF + SVD.
+sentence-transformers>=3.0
+# Only needed for the OpenAI adapter
+openai>=1.40

@@ -1,0 +1,305 @@
+{
+  "embedder": "tfidf-svd",
+  "n_feedback": 3000,
+  "n_labelled": 300,
+  "llm_used": null,
+  "clustering": {
+    "k": 12,
+    "silhouette_by_k": {
+      "4": 0.056570441649717536,
+      "5": 0.06552430377740298,
+      "6": 0.0749979296375236,
+      "7": 0.09318102742477082,
+      "8": 0.10031236042606656,
+      "9": 0.11183372439985843,
+      "10": 0.12029525281236457,
+      "11": 0.1292343938706681,
+      "12": 0.14582477787095005
+    },
+    "silhouette": 0.14582477787095005,
+    "clusters": [
+      {
+        "cluster": 0,
+        "size": 450,
+        "top_terms": [
+          "ad",
+          "payment",
+          "time",
+          "m-pesa",
+          "failed",
+          "sent",
+          "video",
+          "following"
+        ],
+        "examples": [
+          "wueh m-pesa payment was smooth this time. and this ad is loud and it autoplays",
+          "honestly payment failed but m-pesa sent a confirmation message. please sort this out",
+          "Again, M-Pesa payment was smooth this time kwa kweli"
+        ],
+        "majority_theme": "ad_annoyance",
+        "purity": 0.493
+      },
+      {
+        "cluster": 7,
+        "size": 430,
+        "top_terms": [
+          "flour",
+          "arrived",
+          "thanks",
+          "chapati flour",
+          "chapati",
+          "iftar pack",
+          "iftar",
+          "pack"
+        ],
+        "examples": [
+          "Again, the the 5L oil jerrycan arrived quickly and well packed. plus unga packaging was leaking kwa kweli",
+          "Bana the tea leaves arrived quickly and well packed. plus quality imeshuka, cooking oil si kama zamani. asante",
+          "Hi, the chapati flour arrived quickly and well packed"
+        ],
+        "majority_theme": "quality",
+        "purity": 0.449
+      },
+      {
+        "cluster": 9,
+        "size": 365,
+        "top_terms": [
+          "delivery",
+          "came",
+          "supposed",
+          "supposed day",
+          "day came",
+          "delivery supposed",
+          "day",
+          "delivered"
+        ],
+        "examples": [
+          "Honestly delivery fee of KES 150 is more than the item, also delivery was supposed to be same day but it came after 7 days",
+          "delivery was supposed to be same day but it came after 5 days",
+          "delivery was supposed to be same day but it came after 3 days"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.625
+      },
+      {
+        "cluster": 10,
+        "size": 344,
+        "top_terms": [
+          "price",
+          "checkout",
+          "different",
+          "chat",
+          "m-pesa step",
+          "checkout keeps",
+          "step",
+          "timing"
+        ],
+        "examples": [
+          "Again, the offer price on the ad was different at checkout kwa kweli",
+          "Tausi, the offer price on the ad was different at checkout kwa kweli",
+          "Again, the offer price on the ad was different at checkout"
+        ],
+        "majority_theme": "pricing",
+        "purity": 0.358
+      },
+      {
+        "cluster": 8,
+        "size": 289,
+        "top_terms": [
+          "iko",
+          "customer",
+          "bei",
+          "service",
+          "customer care",
+          "care",
+          "compared supermarket",
+          "compared"
+        ],
+        "examples": [
+          "Again, customer care hawashiki simu. and bei iko juu sana compared to the supermarket. very disappointed",
+          "bei iko juu sana compared to the supermarket. and customer care never picks up the phone kwa kweli",
+          "tausi, bei iko juu sana compared to the supermarket. plus service ni poa, rider was polite. fix this"
+        ],
+        "majority_theme": "positive",
+        "purity": 0.391
+      },
+      {
+        "cluster": 1,
+        "size": 266,
+        "top_terms": [
+          "broken",
+          "shows",
+          "stale broken",
+          "crisps stale",
+          "stale",
+          "seal",
+          "m-pesa",
+          "updates"
+        ],
+        "examples": [
+          "again, skip button never shows on this ad. and the crisps were stale and broken. very disappointed",
+          "again, money was deducted from m-pesa but the order shows unpaid. very disappointed",
+          "Again, money was deducted from M-Pesa but the order shows unpaid. very disappointed"
+        ],
+        "majority_theme": "quality",
+        "purity": 0.297
+      },
+      {
+        "cluster": 4,
+        "size": 255,
+        "top_terms": [
+          "waiting",
+          "arrive",
+          "took arrive",
+          "took",
+          "number",
+          "week",
+          "ordered",
+          "ordered week"
+        ],
+        "examples": [
+          "so my order took 5 days to arrive in kilimani. plus i paid via the till number and i am still waiting for the refund. very disappointed",
+          "My order took 6 days to arrive in Kitengela. plus I paid via the till number and I am still waiting for the refund. please sort this out",
+          "tausi, i paid via the till number and i am still waiting for the refund. will not order again"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.467
+      },
+      {
+        "cluster": 5,
+        "size": 156,
+        "top_terms": [
+          "hakuna",
+          "ameleta",
+          "alipotea hakuna",
+          "alipotea",
+          "mtu ameleta",
+          "hakuna mtu",
+          "rider alipotea",
+          "mtu"
+        ],
+        "examples": [
+          "Rider alipotea, hakuna mtu ameleta unga",
+          "Bana rider alipotea, hakuna mtu ameleta unga",
+          "Rider alipotea, hakuna mtu ameleta unga pls"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.455
+      },
+      {
+        "cluster": 6,
+        "size": 139,
+        "top_terms": [
+          "nimengoja",
+          "mzigo",
+          "mzigo haujafika",
+          "sasa",
+          "sasa nimengoja",
+          "haujafika",
+          "hadi",
+          "hadi sasa"
+        ],
+        "examples": [
+          "Mzigo haujafika hadi sasa, nimengoja 5 days",
+          "Mzigo haujafika hadi sasa, nimengoja 7 days",
+          "mzigo haujafika hadi sasa, nimengoja 2 days"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.705
+      },
+      {
+        "cluster": 11,
+        "size": 126,
+        "top_terms": [
+          "ilikuwa",
+          "taste mbaya",
+          "juice ilikuwa",
+          "taste",
+          "ilikuwa taste",
+          "mbaya",
+          "poa nitaorder",
+          "nitaorder"
+        ],
+        "examples": [
+          "So juice ilikuwa na taste mbaya, also poa sana, nitaorder tena. will not order again",
+          "juice ilikuwa na taste mbaya. sio poa",
+          "So juice ilikuwa na taste mbaya. sio poa"
+        ],
+        "majority_theme": "quality",
+        "purity": 0.675
+      },
+      {
+        "cluster": 2,
+        "size": 117,
+        "top_terms": [
+          "bado",
+          "imechelewa bado",
+          "imechelewa",
+          "pending",
+          "mpesa bado",
+          "nimelipa mpesa",
+          "inasema",
+          "inasema pending"
+        ],
+        "examples": [
+          "order imechelewa sana, 7 days na bado",
+          "order imechelewa sana, 2 days na bado",
+          "Order imechelewa sana, 2 days na bado"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.675
+      },
+      {
+        "cluster": 3,
+        "size": 63,
+        "top_terms": [
+          "calling directions",
+          "calling",
+          "disappeared",
+          "rider kept",
+          "directions",
+          "directions disappeared",
+          "kept calling",
+          "kept"
+        ],
+        "examples": [
+          "the rider kept calling for directions then disappeared",
+          "The rider kept calling for directions then disappeared",
+          "So the rider kept calling for directions then disappeared"
+        ],
+        "majority_theme": "delivery",
+        "purity": 0.937
+      }
+    ],
+    "adjusted_rand_index": 0.16643857025575118
+  },
+  "classification": {
+    "baseline_logreg_cv5": {
+      "macro_f1": 0.897,
+      "accuracy": 0.9,
+      "per_class_f1": {
+        "ad_annoyance": 0.9,
+        "delivery": 0.931,
+        "payment": 0.897,
+        "positive": 0.874,
+        "pricing": 0.907,
+        "quality": 0.864,
+        "service": 0.909
+      }
+    },
+    "zero_shot_embedding": {
+      "macro_f1": 0.69,
+      "accuracy": 0.683,
+      "per_class_f1": {
+        "ad_annoyance": 0.634,
+        "delivery": 0.677,
+        "payment": 0.854,
+        "positive": 0.396,
+        "pricing": 0.734,
+        "quality": 0.773,
+        "service": 0.76
+      }
+    }
+  },
+  "seconds": 4.2
+}
