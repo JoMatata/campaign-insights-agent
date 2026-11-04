@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    env:
+      CIA_EMBEDDER: tfidf  # no torch download in CI
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Unit tests (fake LLM, no API key)
+        run: python -m pytest
+      - name: End to end without a model
+        run: |
+          python -m src.data.generate
+          python -m src.text.pipeline
+          python -m eval.run_eval --fake
+          python -m src.cli demo
